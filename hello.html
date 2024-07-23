@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plain JavaScript</title>
+</head>
+<body>
+    <input type="text" id="input" placeholder="Type to add item">
+    <ul id="list"></ul>
+
+    <script>
+        const input = document.getElementById('input');
+        const list = document.getElementById('list');
+
+        input.addEventListener('input', () => {
+            const items = input.value.split(',');
+            list.innerHTML = ''; // Clear the list
+            items.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = item.trim();
+                list.appendChild(li);
+            });
+        });
+    </script>
+</body>
+</html>
